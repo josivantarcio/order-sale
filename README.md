@@ -32,7 +32,7 @@ The project is divided into different packages and classes, each responsible for
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/josivantarcio/order-sale
    ```
 
 2. Navigate to the project directory:
