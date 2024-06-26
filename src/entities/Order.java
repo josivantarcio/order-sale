@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import entities.enums.OrderStatus;
 
@@ -14,12 +15,22 @@ public class Order {
 	private LocalDateTime moment;
 	private OrderStatus status;
 
+	private Client client;
+
 	private List<OrderItem> items = new ArrayList<>();
 
 	public Order(OrderStatus status) {
 
 		this.moment = LocalDateTime.now(); // date and time in the moment of instance
 		this.status = status;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	public OrderStatus getStatus() {
@@ -34,10 +45,6 @@ public class Order {
 		return moment;
 	}
 
-	public List<OrderItem> getItems() {
-		return items;
-	}
-
 	public void addItem(OrderItem item) {
 		items.add(item);
 	}
@@ -48,11 +55,7 @@ public class Order {
 
 	public Double total() {
 
-		double sum = 0;
-		for (OrderItem o : items) {
-			sum += o.subTotal();
-		}
-		return sum;
+		return items.stream().collect(Collectors.summingDouble(OrderItem::subTotal));
 	}
 
 	@Override

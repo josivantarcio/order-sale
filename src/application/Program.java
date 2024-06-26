@@ -56,7 +56,7 @@ public class Program {
 			System.out.print("Quantity: ");
 			int prodQuant = sc.nextInt();
 
-			item = new OrderItem(prodQuant, new Product(prodName, prodPrice));
+			item = new OrderItem(prodPrice, prodQuant, new Product(prodName, prodPrice));
 			order.addItem(item);
 
 			System.out.println();
