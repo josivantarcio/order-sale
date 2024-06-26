@@ -19,10 +19,10 @@ public class Order {
 
 	private List<OrderItem> items = new ArrayList<>();
 
-	public Order(OrderStatus status) {
-
+	public Order(OrderStatus status, Client client) {
 		this.moment = LocalDateTime.now(); // date and time in the moment of instance
 		this.status = status;
+		this.client = client;
 	}
 
 	public Client getClient() {

@@ -38,7 +38,7 @@ public class Program {
 		System.out.println("Enter order data: ");
 		System.out.print("Status: ");
 		String status = sc.next();
-		Order order = new Order(OrderStatus.valueOf(status));
+		Order order = new Order(OrderStatus.valueOf(status), client);
 		OrderItem item = null;
 
 		System.out.print("How many items to this order? ");
